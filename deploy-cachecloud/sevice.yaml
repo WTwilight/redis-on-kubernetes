@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cachecloud
+  labels:
+    app: cachecloud
+spec:
+  type: NodePort
+  ports:
+    - port: 8585
+      protocol: TCP
+      targetPort: 8585
+      nodePort: 30085
+  selector:
+    run: cachecloud

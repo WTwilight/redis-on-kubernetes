@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cachecloud
+  labels:
+    app: cachecloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cachecloud
+  template:
+    metadata:
+      labels:
+        app: cachecloud
+    spec:
+      containers:
+      - name: cachecloud
+        image: private.registry.com/library/cachecloud:1.2-centos.7.2.1511
+        ports:
+        - containerPort: 8585
+#        env:
+#        - name: cachecloud.db.url
+#          value: "jdbc:mysql://cachecloud-mysql:3306/cachecloud"
+#        - name: cachecloud.db.user
+#          value: "root"
+#        - name: cachecloud.db.password
+#          value: "12345678"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cachecloud
+  labels:
+    app: cachecloud
+spec:
+  type: NodePort
+  ports:
+    - port: 8585
+      protocol: TCP
+      targetPort: 8585
+      nodePort: 30085
+  selector:
+    app: cachecloud

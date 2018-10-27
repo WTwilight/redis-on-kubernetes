@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-whx-access-service
+  labels:
+    app: redis-whx
+spec:
+  ports:
+  - name: redis-whx-port
+    protocol: "TCP"
+    port: 6379
+    targetPort: 6379
+    nodePort: 30379
+  type: NodePort
+  selector:
+    app: redis-whx
+    appCluster: redis-whx-cluster

@@ -1,0 +1,68 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: redis-whx
+spec:
+  serviceName: "redis-whx-service"
+  replicas: 6
+  template:
+    metadata:
+      labels:
+        app: redis-whx
+        appCluster: redis-whx-cluster
+    spec:
+      terminationGracePeriodSeconds: 20
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - redis-whx
+              topologyKey: kubernetes.io/hostname
+      containers:
+      - name: redis-whx
+        image: "private.registry.com/library/redis:3.0.7-centos7.2.1511"
+        command:
+          - "redis-server"
+        args:
+          - "/etc/redis/redis.conf"
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "4096Mi"
+          limits:
+            cpu: "500m"
+            memory: "16384Mi"
+        ports:
+            - name: redis-whx
+              containerPort: 6379
+              protocol: "TCP"
+            - name: cluster-lmx
+              containerPort: 16379
+              protocol: "TCP"
+        volumeMounts:
+          - name: "redis-conf"
+            mountPath: "/etc/redis"
+          - name: "redis-whx-data"
+            mountPath: "/var/lib/redis"
+      volumes:
+      - name: "redis-conf"
+        configMap:
+          name: "redis-conf"
+          items:
+            - key: "redis.conf"
+              path: "redis.conf"
+  volumeClaimTemplates:
+  - metadata:
+      name: redis-whx-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: cephrbd-sc
+      resources:
+        requests:
+          storage: 50Gi
