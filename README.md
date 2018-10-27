@@ -33,7 +33,7 @@ docker push private.registry.com/library/mysql:5.7
 
 ## 制作cachecloud镜像
 cachecloud是搜狐开源的redis集群管理及监控工具，这里我们只用到其监控功能，即后台创建好redis集群后，再将redis集群信息导入cachecloud，实现WEB监控。  
-cachecloud不提供动态配置文件，即需要修改好相关参数后，再用maven打成war包，最后运行war包。这里吐槽一下，cachecloud的文档写得很糟糕。  
+cachecloud不提供动态配置文件，即需要修改好相关参数后，再用maven打成war包，最后运行war包。  
 由于需要先修改相关配置再maven打包，这里有有一项是必须需要修改的，即MySQL的配置，具体操作过程如下：  
 官方下载最新版的cachecloud release版：  
 ```
