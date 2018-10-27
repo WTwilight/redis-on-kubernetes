@@ -1,7 +1,8 @@
 # redis-on-kubernetes
-Deploy redis cluster and cachecloud on kubernetes.
+将Redis部署到Kubernetes集群中，并通过cachecloud监控redis集群。  
+通过下面的方式部署的redis集群只能为部署在Kubernetes集群内的应用提供redis服务。
 
-# 方案概述
+# 组件说明
 - redis实例：  
     使用Kubernetes的statefulset控制器部署redis实例。一个redis集群对应一个statefulset  
 - redis集群管理工具redis-trib：  
