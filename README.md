@@ -624,12 +624,12 @@ kubectl apply -f redis-statefulset.yaml
 ```
 # kubectl get pod -l app=redis-whx -o wide    
 NAME          READY     STATUS    RESTARTS   AGE       IP             NODE
-redis-whx-0   1/1       Running   0          1d        10.244.3.45    gz-bigdata-164000105.ctc.local
-redis-whx-1   1/1       Running   0          1d        10.244.0.116   gz-bigdata-164000102.ctc.local
-redis-whx-2   1/1       Running   0          1d        10.244.2.82    gz-bigdata-164000104.ctc.local
-redis-whx-3   1/1       Running   0          1d        10.244.1.15    gz-bigdata-164000103.ctc.local
-redis-whx-4   1/1       Running   0          1d        10.244.3.46    gz-bigdata-164000105.ctc.local
-redis-whx-5   1/1       Running   0          1d        10.244.2.83    gz-bigdata-164000104.ctc.local
+redis-whx-0   1/1       Running   0          1d        10.244.3.45    k8snode-164000105
+redis-whx-1   1/1       Running   0          1d        10.244.0.116   k8snode-164000102
+redis-whx-2   1/1       Running   0          1d        10.244.2.82    k8snode-164000104
+redis-whx-3   1/1       Running   0          1d        10.244.1.15    k8snode-164000103
+redis-whx-4   1/1       Running   0          1d        10.244.3.46    k8snode-164000105
+redis-whx-5   1/1       Running   0          1d        10.244.2.83    k8snode-164000104
 ```
 
 ## 部署redis-trib
