@@ -69,7 +69,7 @@ vim cachecloud-1.2/cachecloud-open-web/src/main/swap/online.properties
 #################################
 FROM centos:7.2.1511
 
-MAINTAINER shaoj@chinatelecom.cn
+MAINTAINER jason.sj.cn@gmail.com
 
 ENV CACHECLOUD_VERSION=1.2 \
     base_dir="/opt/cachecloud-web"
@@ -104,7 +104,7 @@ docker push private.registry.com/library/cachecloud:1.2-centos.7.2.1511
 Dockerfile：  
 ```
 FROM ubuntu:16.04
-LABEL maintainer "shaoj@chinatelecom.cn"
+LABEL maintainer "jason.sj.cn@gmail.com"
 
 RUN apt-get update \
   && apt-get install -y vim \
@@ -131,7 +131,7 @@ Dockerfile：
 ```
 FROM centos:7.2.1511
 
-LABEL maintainer "shaoj@chinatelecom.cn"
+LABEL maintainer "jason.sj.cn@gmail.com"
 
 EXPOSE 6379
 ENTRYPOINT ["/entrypoint.sh"]

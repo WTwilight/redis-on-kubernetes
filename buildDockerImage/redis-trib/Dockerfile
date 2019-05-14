@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-LABEL maintainer "shaoj@chinatelecom.cn"
+LABEL maintainer "jason.sj.cn@gmail.com"
 
 RUN apt-get update \
   && apt-get install -y vim \

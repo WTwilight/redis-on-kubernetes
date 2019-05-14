@@ -1,6 +1,6 @@
 FROM centos:7.2.1511
 
-LABEL maintainer "shaoj@chinatelecom.cn"
+LABEL maintainer "jason.sj.cn@gmail.com"
 
 EXPOSE 6379
 ENTRYPOINT ["/entrypoint.sh"]

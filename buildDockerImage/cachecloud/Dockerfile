@@ -4,7 +4,7 @@
 #################################
 FROM centos:7.2.1511
 
-MAINTAINER shaoj@chinatelecom.cn
+MAINTAINER jason.sj.cn@gmail.com
 
 ENV CACHECLOUD_VERSION=1.2 \
     base_dir="/opt/cachecloud-web"
