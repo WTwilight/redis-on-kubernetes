@@ -45,7 +45,7 @@
         <velocity.version>1.7</velocity.version>
         <velocity-tool.version>2.0</velocity-tool.version>
         <velocity-tools-generic.version>2.1.0-SNAPSHOT</velocity-tools-generic.version>
-        <hadoop>2.5.1</hadoop>
+        <hadoop>2.7.0</hadoop>
         <extremecomponents.version>1.0.1</extremecomponents.version>
         <fastjson.version>1.1.41</fastjson.version>
         <maven.deloy.plugin>2.8.1</maven.deloy.plugin>
